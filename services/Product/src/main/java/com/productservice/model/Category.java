@@ -11,9 +11,11 @@ import java.util.List;
 @Setter
 @Builder
 @Entity
+@Table(name = "category")
 public class Category {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "category_seq")
+    @SequenceGenerator(name = "category_seq", sequenceName = "category_SEQ", allocationSize = 1)
     private Integer id;
     private String name;
     private String description;

@@ -1,9 +1,13 @@
+CREATE SEQUENCE IF NOT EXISTS category_seq;
+
 create table if not exists category
 (
   id Integer not null primary key default nextval('category_seq'),
   description varchar(255),
   name varchar(255)
 );
+
+create sequence if not exists product_seq;
 
 create table if not exists product
 (
@@ -16,5 +20,4 @@ create table if not exists product
    constraint fk_product_category foreign key (category_id) references category(id)
 );
 
-create sequence if not exists category_seq increment by 50;
-create sequence if not exists product_seq increment by 50;
+ALTER SEQUENCE category_SEQ INCREMENT BY 50;
