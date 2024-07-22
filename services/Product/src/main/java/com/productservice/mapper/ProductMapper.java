@@ -3,6 +3,7 @@ package com.productservice.mapper;
 import com.productservice.model.Category;
 import com.productservice.model.Product;
 import com.productservice.request.ProductRequest;
+import com.productservice.response.ProductPurchaseResponse;
 import com.productservice.response.ProductResponse;
 import org.springframework.stereotype.Component;
 
@@ -29,6 +30,16 @@ public class ProductMapper {
                 product.getCategory().getId(),
                 product.getCategory().getName(),
                 product.getCategory().getDescription()
+        );
+    }
+
+    public ProductPurchaseResponse toProductPurchaseResponse(Product product, double quantity) {
+        return new ProductPurchaseResponse(
+                product.getId(),
+                product.getName(),
+                product.getDescription(),
+                product.getPrice(),
+                quantity
         );
     }
 }
