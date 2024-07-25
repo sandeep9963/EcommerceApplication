@@ -6,6 +6,8 @@
     <file url="file://$PROJECT_DIR$/services/Customer/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services/DiscoveryService/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services/DiscoveryService/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/services/Order/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/services/Order/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services/Product/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/services/Product/src/main/resources" charset="UTF-8" />
   </component>

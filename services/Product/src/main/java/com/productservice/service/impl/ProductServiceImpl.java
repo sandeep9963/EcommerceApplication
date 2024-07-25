@@ -39,7 +39,8 @@ public class ProductServiceImpl implements ProductService {
             throw new ProductPurchaseException("One or more products doesn't exists");
         }
         var storedRequest = requests.stream()
-                .sorted(Comparator.comparing(ProductPurchaseRequest::productId)).toList();
+                .sorted(Comparator.comparing(ProductPurchaseRequest::productId))
+                .toList();
         var purchaseProduct = new ArrayList<ProductPurchaseResponse>();
         for (int i= 0; i< storeProduct.size(); i++){
             var product = storeProduct.get(i);
@@ -66,6 +67,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductResponse> findAll() {
-        return productRepository.findAll().stream().map(mapper::toProductResponse).collect(Collectors.toList());
+        return productRepository.findAll()
+                .stream()
+                .map(mapper::toProductResponse)
+                .collect(Collectors.toList());
     }
 }
