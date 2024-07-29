@@ -5,7 +5,10 @@ import com.orderservice.config.ProductClient;
 import com.orderservice.exception.BusinessException;
 import com.orderservice.mapper.OrderMapper;
 import com.orderservice.repository.OrderRepository;
+import com.orderservice.request.OrderLineRequest;
 import com.orderservice.request.OrderRequest;
+import com.orderservice.request.PurchaseRequest;
+import com.orderservice.service.OrderLineService;
 import com.orderservice.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,6 +21,7 @@ public class OrderServiceImpl implements OrderService {
     private final CustomerClient customerClient;
     private final ProductClient productClient;
     private final OrderMapper mapper;
+    private final OrderLineService orderLineService;
     @Override
     public Integer createdOrder(OrderRequest orderRequest) {
         // Check the customer --> Openfeign
@@ -28,8 +32,19 @@ public class OrderServiceImpl implements OrderService {
         //persist the order
         var order = orderRepository.save(mapper.toOrder(orderRequest));
         //persist the order lines
+        for (PurchaseRequest purchaseRequest : orderRequest.products()) {
+            orderLineService.saveOrderLine(
+                    new OrderLineRequest(
+                            null,
+                            order.getId(),
+                            purchaseRequest.productId(),
+                            purchaseRequest.quantity()
+                    )
+            );
+        }
         // start payment process
         //send the order Confirmation --> notification-ms(Kafka)
+
         return null;
     }
 }

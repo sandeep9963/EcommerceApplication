@@ -32,7 +32,7 @@
   <component name="DBNavigator.Project.FileConnectionMappingManager">
     <mapping file-url="file://$PROJECT_DIR$/services/Product/src/main/resources/db/migration/V1___init_database.sql" connection-id="virtual-postgres-connection" session-id="MAIN" current-schema="" />
     <mapping file-url="file://$PROJECT_DIR$/services/Config-Server" connection-id="a2c340d0-4bda-4961-bc89-5cb3686c51f3" session-id="MAIN" current-schema="postgres" />
-    <mapping file-url="file://$PROJECT_DIR$/services/Product/src/main/resources/db/migration/V2__insert_data.sql" connection-id="virtual-postgres-connection" session-id="" current-schema="" />
+    <mapping file-url="file://$PROJECT_DIR$/services/Product/src/main/resources/db/migration/V2__insert_data.sql" connection-id="virtual-postgres-connection" session-id="MAIN" current-schema="" />
   </component>
   <component name="DBNavigator.Project.ObjectQuickFilterManager">
     <last-used-operator value="EQUAL" />
